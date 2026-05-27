@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>exercise_4b</title>
+    <style>
+        .on-btn {
+            background-color: rgb(25, 135, 85);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/babel.js"></script>
+    <script type="text/babel">
+
+        function App() {
+            const [isButtonOn, setIsButtonOn] = React.useState(true);
+            
+            function clickButton() {
+                if(isButtonOn) {
+                    setIsButtonOn(false);
+                }else {
+                    setIsButtonOn(true);
+                }
+            }
+            
+            return (
+                <>
+                    <button onClick={clickButton} className="on-btn">{isButtonOn ? 'ON' : 'OFF'}</button>
+                </>
+            );
+        }
+
+        const container = document.querySelector(".js-container");
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>
