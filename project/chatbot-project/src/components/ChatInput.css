@@ -6,6 +6,18 @@
      border: none;
      border-radius: 10px;
      font-size: 15px;
+     cursor: pointer;
+ }
+
+ .clear-button {
+    background-color: rgb(230, 230, 230);
+     color: black;
+     padding: 10px 20px;
+     margin-left: 10px;
+     border: none;
+     border-radius: 10px;
+     font-size: 15px;
+     cursor: pointer;
  }
 
  .chat-input {
@@ -19,5 +31,6 @@
 
  .chat-input-container {
      display: flex;
+     padding-top: 15px;
      margin-bottom: 60px;
  }

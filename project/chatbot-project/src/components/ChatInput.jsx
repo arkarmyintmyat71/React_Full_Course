@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './ChatInput.css'
 import loadingSpanner from '../assets/loading-spinner.gif';
 import { Chatbot } from 'supersimpledev';
+import { useCurrentTime } from '../hooks/useCurrentTime';
 
 export function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const currentTime = useCurrentTime();
 
   function saveInputText(event) {
     setInputText(event.target.value);
@@ -31,6 +33,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
       ...chatMessages,
       {
         message: inputText,
+        currentTime: currentTime,
         sender: "user",
         id: crypto.randomUUID()
       }
@@ -51,12 +54,17 @@ export function ChatInput({ chatMessages, setChatMessages }) {
       ...newChatMessage,
       {
         message: response,
+        currentTime: currentTime,
         sender: "robot",
         id: crypto.randomUUID()
       }
     ]);
 
     setIsLoading(false);
+  }
+
+  function clearMessage() {
+    setChatMessages([]);
   }
   return (
     <div className="chat-input-container">
@@ -69,6 +77,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         className="chat-input"
       />
       <button className="send-button" onClick={sendMessage}>Send</button>
+      <button className="clear-button" onClick={clearMessage}>Clear</button>
     </div>
   );
 }

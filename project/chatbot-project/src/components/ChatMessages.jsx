@@ -1,6 +1,7 @@
 import { useAutoScroll } from '../hooks/useAutoScroll'
 import { ChatMessage } from './ChatMessage';
 import './ChatMessages.css'
+
 export function ChatMessages({ chatMessages }) {
   const chatMessageRef = useAutoScroll([chatMessages]);
 
@@ -13,6 +14,7 @@ export function ChatMessages({ chatMessages }) {
             <ChatMessage
               message={chatMessage.message}
               sender={chatMessage.sender}
+              currentTime={chatMessage.currentTime}
               key={chatMessage.id}
             />
           );

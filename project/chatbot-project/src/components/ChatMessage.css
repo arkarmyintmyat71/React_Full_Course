@@ -12,12 +12,19 @@
 
  .chat-message-text {
      background-color: rgb(238, 238, 238);
-     padding: 15px 20px;
+     padding: 5px 10px;
      border-radius: 10px;
      max-width: 300px;
      margin-right: 10px;
      margin-left: 10px;
      margin-bottom: 20px;
+ }
+
+ .current-time {
+     color: rgb(120, 120, 120);
+     font-size: 12px;
+     margin-top: 5px;
+     text-align: end;
  }
 
  .loading-spinner {
